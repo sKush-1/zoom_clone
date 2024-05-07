@@ -50,6 +50,7 @@ const MeetingModal = ({
                         </div>
                     )}
                     <h1 className={cn("text-3xl font-bold leading-[42px]", className)}> {title} </h1>
+                    {children}
 
                     <Button
                         className={
@@ -57,6 +58,14 @@ const MeetingModal = ({
                         }
                         onClick={handleClick}
                     >
+                        {buttonIcon && (
+                            <Image
+                                src={buttonIcon}
+                                alt="button icon"
+                                width={13}
+                                height={13} />
+                        )}  &nbsp;
+
                         {buttonText || 'Schedule Meeting'}
                     </Button>
 
