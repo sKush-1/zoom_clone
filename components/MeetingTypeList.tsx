@@ -33,6 +33,7 @@ const MeetingTypeList = () => {
   const [values, setValues] = useState(initialValues)
   const [callDetail, setCallDetails] = useState<Call>();
   const { toast } = useToast();
+  console.log(user)
 
   const createMeeting = async () => {
     if (!client || !user) return;
@@ -57,6 +58,7 @@ const MeetingTypeList = () => {
 
       await call.getOrCreate({
         data: {
+          // members: [{ user_id: user?.firstName}],
           starts_at: startsAt,
           custom: {
             description

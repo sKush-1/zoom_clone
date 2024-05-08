@@ -34,6 +34,15 @@ const MeetingRoom = () => {
     const [showParticipants, setShowParticipants] = useState(false);
     const { useCallCallingState } = useCallStateHooks();
     const callingState = useCallCallingState();
+    const {
+        useCallMembers,
+        useDominantSpeaker,
+        useParticipants,
+        useLocalParticipant,
+        useIsCallRecordingInProgress,
+        // ...
+      } = useCallStateHooks();
+      
 
     if (callingState !== CallingState.JOINED) return <Loader />;
 
