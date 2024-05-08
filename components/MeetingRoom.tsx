@@ -33,6 +33,10 @@ const MeetingRoom = () => {
     const [layout, setLayout] = useState<CallLayoutType>('speaker-left');
     const [showParticipants, setShowParticipants] = useState(false);
     const { useCallCallingState } = useCallStateHooks();
+    const callingState = useCallCallingState();
+
+    if (callingState !== CallingState.JOINED) return <Loader />;
+
 
     const CallLayout = () => {
         switch (layout) {
@@ -58,7 +62,7 @@ const MeetingRoom = () => {
                 </div>
             </div>
 
-            <div className='fixed bottom-0 w-full items-centre justify-center gap-5'>
+            <div className='fixed bottom-0 w-full items-centre justify-center gap-5 flex-wrap'>
                 <CallControls />
 
                 <DropdownMenu>
