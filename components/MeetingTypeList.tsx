@@ -33,7 +33,6 @@ const MeetingTypeList = () => {
   const [values, setValues] = useState(initialValues)
   const [callDetail, setCallDetails] = useState<Call>();
   const { toast } = useToast();
-  console.log(user)
 
   const createMeeting = async () => {
     if (!client || !user) return;
